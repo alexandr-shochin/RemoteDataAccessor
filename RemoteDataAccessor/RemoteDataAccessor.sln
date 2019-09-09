@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataAccessorSystem", "RemoteDataAccessorSystem\RemoteDataAccessorSystem.csproj", "{D03AFF78-515F-4886-9552-A4AC96F7FA10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataAccessor.Common", "RemoteDataAccessor.Common\RemoteDataAccessor.Common.csproj", "{B508E817-CA3D-4A09-9C31-AD665A3100EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataAccessor.DataAccessHelper", "RemoteDataAccessor.DataAccessHelper\RemoteDataAccessor.DataAccessHelper.csproj", "{4B73FD18-0EE0-46C2-A522-D63FF6BEC32A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataAccessor.Engine", "RemoteDataAccessor.Engine\RemoteDataAccessor.Engine.csproj", "{279E3C46-B515-4BDA-8863-80748963FCD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +21,18 @@ Global
 		{D03AFF78-515F-4886-9552-A4AC96F7FA10}.Debug|x64.Build.0 = Debug|x64
 		{D03AFF78-515F-4886-9552-A4AC96F7FA10}.Release|x64.ActiveCfg = Release|x64
 		{D03AFF78-515F-4886-9552-A4AC96F7FA10}.Release|x64.Build.0 = Release|x64
+		{B508E817-CA3D-4A09-9C31-AD665A3100EF}.Debug|x64.ActiveCfg = Debug|x64
+		{B508E817-CA3D-4A09-9C31-AD665A3100EF}.Debug|x64.Build.0 = Debug|x64
+		{B508E817-CA3D-4A09-9C31-AD665A3100EF}.Release|x64.ActiveCfg = Release|x64
+		{B508E817-CA3D-4A09-9C31-AD665A3100EF}.Release|x64.Build.0 = Release|x64
+		{4B73FD18-0EE0-46C2-A522-D63FF6BEC32A}.Debug|x64.ActiveCfg = Debug|x64
+		{4B73FD18-0EE0-46C2-A522-D63FF6BEC32A}.Debug|x64.Build.0 = Debug|x64
+		{4B73FD18-0EE0-46C2-A522-D63FF6BEC32A}.Release|x64.ActiveCfg = Release|x64
+		{4B73FD18-0EE0-46C2-A522-D63FF6BEC32A}.Release|x64.Build.0 = Release|x64
+		{279E3C46-B515-4BDA-8863-80748963FCD3}.Debug|x64.ActiveCfg = Debug|x64
+		{279E3C46-B515-4BDA-8863-80748963FCD3}.Debug|x64.Build.0 = Debug|x64
+		{279E3C46-B515-4BDA-8863-80748963FCD3}.Release|x64.ActiveCfg = Release|x64
+		{279E3C46-B515-4BDA-8863-80748963FCD3}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
