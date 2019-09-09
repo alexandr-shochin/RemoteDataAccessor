@@ -66,6 +66,8 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Classes\Tools\ComponentRegistrationTool.cs" />
+    <Compile Include="Classes\Tools\NLogInitializerTool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -87,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RemoteDataAccessor.Common\RemoteDataAccessor.Common.csproj">
-      <Project>{B508E817-CA3D-4A09-9C31-AD665A3100EF}</Project>
+      <Project>{b508e817-ca3d-4a09-9c31-ad665a3100ef}</Project>
       <Name>RemoteDataAccessor.Common</Name>
     </ProjectReference>
   </ItemGroup>
