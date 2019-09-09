@@ -59,5 +59,50 @@ namespace RemoteDataAccessorSystem.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} component created.
+        /// </summary>
+        internal static string ComponentCreatedMessage {
+            get {
+                return ResourceManager.GetString("ComponentCreatedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to register components.
+        /// </summary>
+        internal static string RegisterComponentsFailed {
+            get {
+                return ResourceManager.GetString("RegisterComponentsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to register engine.
+        /// </summary>
+        internal static string RegisterEngineFailed {
+            get {
+                return ResourceManager.GetString("RegisterEngineFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to register settings.
+        /// </summary>
+        internal static string RegisterSettingsFailed {
+            get {
+                return ResourceManager.GetString("RegisterSettingsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to run system.
+        /// </summary>
+        internal static string RunSystemFailed {
+            get {
+                return ResourceManager.GetString("RunSystemFailed", resourceCulture);
+            }
+        }
     }
 }
