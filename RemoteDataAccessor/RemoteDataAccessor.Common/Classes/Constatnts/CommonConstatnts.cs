@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RemoteDataAccessor.Common.Classes.Constatnts
 {
-    public class CommonConstatnts
+    public static class CommonConstants
     {
         public static readonly string ApplicationName = Process.GetCurrentProcess().ProcessName;
 
