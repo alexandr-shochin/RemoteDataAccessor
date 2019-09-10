@@ -17,7 +17,6 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using NLog;
 
 namespace RemoteDataAccessorSystem.Classes.Tools
 {
@@ -46,8 +45,6 @@ namespace RemoteDataAccessorSystem.Classes.Tools
 
     public class ComponentRegistrationTool
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
         private readonly WindsorContainer _container = new WindsorContainer();
 
         private IEngine _engine;
@@ -62,7 +59,7 @@ namespace RemoteDataAccessorSystem.Classes.Tools
 
                 LogTools logTools = new LogTools();
                 logTools.WriteLogToConsole<Info>(message);
-                Logger.Info(message);
+                logTools.WriteLogToFile<Info>(message);
             };
         }
 

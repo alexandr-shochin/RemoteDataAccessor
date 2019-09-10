@@ -79,7 +79,7 @@ namespace RemoteDataAccessor.Common.Classes.Logs
 
         private void InternalWriteLogToConsole<TLevel>(string message)
         {
-            Console.WriteLine(Resources.InternalWriteLogToConsoleMessage, DateTime.Now.ToString(CommonConstatnts.DateTimeFormat), CommonConstatnts.ApplicationName, typeof(TLevel).Name, message);
+            Console.WriteLine(Resources.InternalWriteLogToConsoleMessage, DateTime.Now.ToString(CommonConstants.DateTimeFormat), CommonConstants.ApplicationName, typeof(TLevel).Name, message);
         }
 
         private void InternalWriteLogToFile<TLevel>(string message)

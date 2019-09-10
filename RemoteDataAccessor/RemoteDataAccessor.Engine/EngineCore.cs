@@ -1,21 +1,20 @@
-﻿using RemoteDataAccessor.Common.Interfaces.Component;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RemoteDataAccessor.Common.Classes.Exceptions;
+using RemoteDataAccessor.Common.Interfaces.Component;
 using RemoteDataAccessor.Common.Interfaces.Settings;
-
-using NLog;
 using RemoteDataAccessor.Common.Interfaces.Helpers;
+using RemoteDataAccessor.Common.Classes.Logs;
+using RemoteDataAccessor.Engine.Properties;
 
 namespace RemoteDataAccessor.Engine
 {
     public class EngineCore : IEngine
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
         private readonly IComponent[] _componets;
 
         private IEngineSettings _engineSettings;
@@ -29,6 +28,8 @@ namespace RemoteDataAccessor.Engine
 
         public void Initialize()
         {
+            LogTools logTools = new LogTools();
+
             foreach (var component in _componets)
             {
                 switch (component)
@@ -43,21 +44,40 @@ namespace RemoteDataAccessor.Engine
                         RegisterDataAccessHelper(dataAccessHelper);
                         break;
                     default:
-                        Logger.Fatal("Unknown component type");
-                        throw new Exception("Unknown component type");
+                        logTools.WriteLogToFile<Fatal>(Resources.UnknownComponentFatal);
+                        throw new UnknownComponentException(Resources.UnknownComponentFatal);
                 }
             }
         }
 
         public void Validate()
         {
-            // TODO
+            LogTools logTools = new LogTools();
+
+            if (_engineSettings == null)
+            {
+                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_engineSettings)));
+                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_engineSettings)));
+            }
+
+            if (_dataAccessHelperSettings == null)
+            {
+                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperSettings)));
+                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperSettings)));
+            }
+
+            if (_dataAccessHelper == null)
+            {
+                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelper)));
+                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelper)));
+            }
         }
 
         public void Run()
         {
             while (true)
             {
+                // some work
                 Thread.Sleep(1 * 1000);
             }
         }
@@ -66,17 +86,44 @@ namespace RemoteDataAccessor.Engine
 
         private void RegisterEngineSettings(IEngineSettings engineSettings)
         {
-            _engineSettings = engineSettings; // TODO
+            if (_engineSettings != null)
+            {
+                string message = string.Format(Resources.RegisterEngineSettingsError, engineSettings.GetType().Name, engineSettings.GetType().Name); 
+                
+                LogTools logTools = new LogTools();
+                logTools.WriteLogToConsole<Error>(message);
+                logTools.WriteLogToFile<Error>(message);
+            }
+
+            _engineSettings = engineSettings;
         }
 
         private void RegisterDataAccessHelperSettings(IDataAccessHelperSettings dataAccessHelperSettings)
         {
-            _dataAccessHelperSettings = dataAccessHelperSettings; // TODO
+            if (_dataAccessHelperSettings != null)
+            {
+                string message = string.Format(Resources.RegisterDataAccessHelperSettingsError, dataAccessHelperSettings.GetType().Name, dataAccessHelperSettings.GetType().Name);
+
+                LogTools logTools = new LogTools();
+                logTools.WriteLogToConsole<Error>(message);
+                logTools.WriteLogToFile<Error>(message);
+            }
+
+            _dataAccessHelperSettings = dataAccessHelperSettings;
         }
 
         private void RegisterDataAccessHelper(IDataAccessHelper dataAccessHelper)
         {
-            _dataAccessHelper = dataAccessHelper; // TODO
+            if (_dataAccessHelper != null)
+            {
+                string message = string.Format(Resources.RegisterDataAccessHelperError, dataAccessHelper.GetType().Name, dataAccessHelper.GetType().Name);
+
+                LogTools logTools = new LogTools();
+                logTools.WriteLogToConsole<Error>(message);
+                logTools.WriteLogToFile<Error>(message);
+            }
+
+            _dataAccessHelper = dataAccessHelper;
         }
 
         #endregion

@@ -5,19 +5,15 @@ using System.Threading;
 using RemoteDataAccessorSystem.Classes.Tools;
 using RemoteDataAccessor.Common.Classes.Logs;
 
-using NLog;
-
 namespace RemoteDataAccessorSystem
 {
     class Program
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
         public static readonly string ComponentsPath = Directory.GetCurrentDirectory() + @"\Modules";
 
         static void Main(string[] args)
         {
-            Thread.Sleep(15 * 1000);
+            //Thread.Sleep(15 * 1000);
 
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
 
@@ -35,7 +31,7 @@ namespace RemoteDataAccessorSystem
             LogTools logTools = new LogTools();
             string message = logTools.GetMessage($"{nameof(AppDomain.CurrentDomain.UnhandledException)}.", (Exception)e.ExceptionObject);
 
-            Logger.Fatal(message);
+            logTools.WriteLogToFile<Fatal>(message);
             logTools.WriteLogToConsole<Fatal>(message);
 
             Thread.Sleep(5 * 1000);
