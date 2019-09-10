@@ -23,6 +23,7 @@ namespace RemoteDataAccessorSystem
             componentRegistrationTool.InitializeSystem();
             componentRegistrationTool.Run();
 
+
             Console.ReadLine();
         }
 
