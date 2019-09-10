@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RemoteDataAccessor.Engine.Properties {
+namespace RemoteDataAccessor.WindowsServiceSystem.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RemoteDataAccessor.Engine.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RemoteDataAccessor.Engine.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RemoteDataAccessor.WindowsServiceSystem.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,47 @@ namespace RemoteDataAccessor.Engine.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not initialized.
+        ///   Looks up a localized string similar to {0} component created.
         /// </summary>
-        internal static string EngineValidateComponentNotInitilizedFatal {
+        internal static string ComponentCreatedMessage {
             get {
-                return ResourceManager.GetString("EngineValidateComponentNotInitilizedFatal", resourceCulture);
+                return ResourceManager.GetString("ComponentCreatedMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DataAccessHelperProxy {0} is reinitialization by dataAccessHelper {1} two dataAccessHelperProxy in one system is a problem!.
+        ///   Looks up a localized string similar to Failed to register components.
         /// </summary>
-        internal static string RegisterDataAccessHelperProxyError {
+        internal static string RegisterComponentsFailed {
             get {
-                return ResourceManager.GetString("RegisterDataAccessHelperProxyError", resourceCulture);
+                return ResourceManager.GetString("RegisterComponentsFailed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DataAccessHelperProxySettings {0} is reinitialization by dataAccessHelperProxySettings {1} two dataAccessHelperSettings in one system is a problem!.
+        ///   Looks up a localized string similar to Failed to register engine.
         /// </summary>
-        internal static string RegisterDataAccessHelperProxySettingsError {
+        internal static string RegisterEngineFailed {
             get {
-                return ResourceManager.GetString("RegisterDataAccessHelperProxySettingsError", resourceCulture);
+                return ResourceManager.GetString("RegisterEngineFailed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EngineSettings {0} is reinitialization by engineSettings {1} two engineSettings in one system is a problem!.
+        ///   Looks up a localized string similar to Failed to register settings.
         /// </summary>
-        internal static string RegisterEngineSettingsError {
+        internal static string RegisterSettingsFailed {
             get {
-                return ResourceManager.GetString("RegisterEngineSettingsError", resourceCulture);
+                return ResourceManager.GetString("RegisterSettingsFailed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown component type.
+        ///   Looks up a localized string similar to Failed to run system.
         /// </summary>
-        internal static string UnknownComponentFatal {
+        internal static string RunSystemFailed {
             get {
-                return ResourceManager.GetString("UnknownComponentFatal", resourceCulture);
+                return ResourceManager.GetString("RunSystemFailed", resourceCulture);
             }
         }
     }

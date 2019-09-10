@@ -18,8 +18,8 @@ namespace RemoteDataAccessor.Engine
         private readonly IComponent[] _componets;
 
         private IEngineSettings _engineSettings;
-        private IDataAccessHelperSettings _dataAccessHelperSettings;
-        private IDataAccessHelper _dataAccessHelper;
+        private IDataAccessHelperProxySettings _dataAccessHelperProxySettings;
+        private IDataAccessHelperProxy _dataAccessHelperProxy;
 
         public EngineCore(IComponent[] componets)
         {
@@ -37,11 +37,11 @@ namespace RemoteDataAccessor.Engine
                     case IEngineSettings engineSettings:
                         RegisterEngineSettings(engineSettings);
                         break;
-                    case IDataAccessHelperSettings dataAccessHelperSettings:
-                        RegisterDataAccessHelperSettings(dataAccessHelperSettings);
+                    case IDataAccessHelperProxySettings dataAccessHelperProxySettings:
+                        RegisterDataAccessHelperProxySettings(dataAccessHelperProxySettings);
                         break;
-                    case IDataAccessHelper dataAccessHelper:
-                        RegisterDataAccessHelper(dataAccessHelper);
+                    case IDataAccessHelperProxy dataAccessHelperProxy:
+                        RegisterDataAccessHelperProxy(dataAccessHelperProxy);
                         break;
                     default:
                         logTools.WriteLogToFile<Fatal>(Resources.UnknownComponentFatal);
@@ -60,16 +60,16 @@ namespace RemoteDataAccessor.Engine
                 logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_engineSettings)));
             }
 
-            if (_dataAccessHelperSettings == null)
+            if (_dataAccessHelperProxySettings == null)
             {
-                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperSettings)));
-                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperSettings)));
+                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperProxySettings)));
+                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperProxySettings)));
             }
 
-            if (_dataAccessHelper == null)
+            if (_dataAccessHelperProxy == null)
             {
-                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelper)));
-                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelper)));
+                logTools.WriteLogToConsole<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperProxy)));
+                logTools.WriteLogToFile<Fatal>(string.Format(Resources.EngineValidateComponentNotInitilizedFatal, nameof(_dataAccessHelperProxy)));
             }
         }
 
@@ -98,32 +98,32 @@ namespace RemoteDataAccessor.Engine
             _engineSettings = engineSettings;
         }
 
-        private void RegisterDataAccessHelperSettings(IDataAccessHelperSettings dataAccessHelperSettings)
+        private void RegisterDataAccessHelperProxySettings(IDataAccessHelperProxySettings dataAccessHelperProxySettings)
         {
-            if (_dataAccessHelperSettings != null)
+            if (_dataAccessHelperProxySettings != null)
             {
-                string message = string.Format(Resources.RegisterDataAccessHelperSettingsError, dataAccessHelperSettings.GetType().Name, dataAccessHelperSettings.GetType().Name);
+                string message = string.Format(Resources.RegisterDataAccessHelperProxySettingsError, dataAccessHelperProxySettings.GetType().Name, dataAccessHelperProxySettings.GetType().Name);
 
                 LogTools logTools = new LogTools();
                 logTools.WriteLogToConsole<Error>(message);
                 logTools.WriteLogToFile<Error>(message);
             }
 
-            _dataAccessHelperSettings = dataAccessHelperSettings;
+            _dataAccessHelperProxySettings = dataAccessHelperProxySettings;
         }
 
-        private void RegisterDataAccessHelper(IDataAccessHelper dataAccessHelper)
+        private void RegisterDataAccessHelperProxy(IDataAccessHelperProxy dataAccessHelperProxy)
         {
-            if (_dataAccessHelper != null)
+            if (_dataAccessHelperProxy != null)
             {
-                string message = string.Format(Resources.RegisterDataAccessHelperError, dataAccessHelper.GetType().Name, dataAccessHelper.GetType().Name);
+                string message = string.Format(Resources.RegisterDataAccessHelperProxyError, dataAccessHelperProxy.GetType().Name, dataAccessHelperProxy.GetType().Name);
 
                 LogTools logTools = new LogTools();
                 logTools.WriteLogToConsole<Error>(message);
                 logTools.WriteLogToFile<Error>(message);
             }
 
-            _dataAccessHelper = dataAccessHelper;
+            _dataAccessHelperProxy = dataAccessHelperProxy;
         }
 
         #endregion

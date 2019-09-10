@@ -117,23 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EngineValidateComponentNotInitilizedFatal" xml:space="preserve">
-    <value>{0} is not initialized</value>
-    <comment>{0} - name of Component</comment>
+  <data name="ComponentCreatedMessage" xml:space="preserve">
+    <value>{0} component created</value>
+    <comment>{0} - Component name</comment>
   </data>
-  <data name="RegisterDataAccessHelperProxyError" xml:space="preserve">
-    <value>DataAccessHelperProxy {0} is reinitialization by dataAccessHelper {1} two dataAccessHelperProxy in one system is a problem!</value>
-    <comment>{0}, {1} - type of DataAccessHelperProxy</comment>
+  <data name="RegisterComponentsFailed" xml:space="preserve">
+    <value>Failed to register components</value>
   </data>
-  <data name="RegisterDataAccessHelperProxySettingsError" xml:space="preserve">
-    <value>DataAccessHelperProxySettings {0} is reinitialization by dataAccessHelperProxySettings {1} two dataAccessHelperSettings in one system is a problem!</value>
-    <comment>{0}, {1} - type of DataAccessHelperProxySettings</comment>
+  <data name="RegisterEngineFailed" xml:space="preserve">
+    <value>Failed to register engine</value>
   </data>
-  <data name="RegisterEngineSettingsError" xml:space="preserve">
-    <value>EngineSettings {0} is reinitialization by engineSettings {1} two engineSettings in one system is a problem!</value>
-    <comment>{0}, {1} - type of EngineSettings</comment>
+  <data name="RegisterSettingsFailed" xml:space="preserve">
+    <value>Failed to register settings</value>
   </data>
-  <data name="UnknownComponentFatal" xml:space="preserve">
-    <value>Unknown component type</value>
+  <data name="RunSystemFailed" xml:space="preserve">
+    <value>Failed to run system</value>
   </data>
 </root>
