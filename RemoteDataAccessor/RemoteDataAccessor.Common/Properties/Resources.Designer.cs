@@ -59,5 +59,14 @@ namespace RemoteDataAccessor.Common.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}. {1} {2} | {3}.
+        /// </summary>
+        internal static string InternalWriteLogToConsoleMessage {
+            get {
+                return ResourceManager.GetString("InternalWriteLogToConsoleMessage", resourceCulture);
+            }
+        }
     }
 }

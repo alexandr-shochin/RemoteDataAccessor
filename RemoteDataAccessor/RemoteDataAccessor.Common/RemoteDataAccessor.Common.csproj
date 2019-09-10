@@ -54,6 +54,18 @@
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Classes\Constatnts\CommonConstatnts.cs" />
+    <Compile Include="Classes\Exceptions\InitializeSystemException.cs" />
+    <Compile Include="Classes\Exceptions\RunSystemException.cs" />
+    <Compile Include="Classes\Exceptions\UnknownComponentException.cs" />
+    <Compile Include="Classes\Logs\Debug.cs" />
+    <Compile Include="Classes\Logs\Error.cs" />
+    <Compile Include="Classes\Logs\ExceptionHandlerTool.cs" />
+    <Compile Include="Classes\Logs\Fatal.cs" />
+    <Compile Include="Classes\Logs\Info.cs" />
+    <Compile Include="Classes\Logs\Level.cs" />
+    <Compile Include="Classes\Logs\LogTools.cs" />
+    <Compile Include="Classes\Logs\Trace.cs" />
+    <Compile Include="Classes\Logs\Warn.cs" />
     <Compile Include="Classes\Settings\DataAccessHelperSettings.cs" />
     <Compile Include="Classes\Settings\EngineSettings.cs" />
     <Compile Include="Interfaces\Component\IComponent.cs" />
