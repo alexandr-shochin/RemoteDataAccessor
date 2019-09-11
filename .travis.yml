@@ -1,0 +1,10 @@
+language: csharp
+solution: RemoteDataAccessor.sln
+
+install:
+  - sudo apt-get install nunit-console
+  - nuget restore RemoteDataAccessor.sln
+  
+script:
+  - xbuild /p:Configuration=Release RemoteDataAccessor.sln
+  #- nunit-console ./RemoteDataAccessor.Tests/bin/Release/RemoteDataAccessor.Tests.dll
