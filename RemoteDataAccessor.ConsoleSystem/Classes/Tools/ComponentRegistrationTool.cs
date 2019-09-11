@@ -4,7 +4,7 @@ using RemoteDataAccessor.Common.Classes.Exceptions;
 using RemoteDataAccessor.Common.Classes.Logs;
 using RemoteDataAccessor.Common.Interfaces.Component;
 using RemoteDataAccessor.Common.Interfaces.Settings;
-using RemoteDataAccessor.WindowsServiceSystem.Properties;
+using RemoteDataAccessor.ConsoleSystem.Properties;
 
 using Castle.Core.Configuration;
 using Castle.MicroKernel;
@@ -13,7 +13,7 @@ using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
+namespace RemoteDataAccessor.ConsoleSystem.Classes.Tools
 {
     public class ArrayFacility : IFacility
     {
@@ -29,7 +29,7 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            BasedOnDescriptor registrations = Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(WindowsServiceSystemCore.ComponentsPath))
+            BasedOnDescriptor registrations = Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(Program.ComponentsPath))
                 .BasedOn<IComponent>()
                 .WithService.FromInterface()
                 .LifestyleSingleton();
@@ -42,7 +42,7 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
     {
         private readonly WindsorContainer _container = new WindsorContainer();
 
-        private IWindowsServiceEngine _engine;
+        private IConsoleSystemEngine _engine;
 
         public ComponentRegistrationTool()
         {
@@ -69,16 +69,16 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
         {
             try
             {
-                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(WindowsServiceSystemCore.ComponentsPath))
+                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(Program.ComponentsPath))
                     .BasedOn<ISettings>()
                     .WithServiceAllInterfaces()
                     .LifestyleSingleton()
                 );
 
-                IDataAccessProxySettings dataAccessProxySettings = _container.Resolve<IDataAccessProxySettings>();
+                IAPIProviderSettings dataAccessProxySettings = _container.Resolve<IAPIProviderSettings>();
                 dataAccessProxySettings.Set = 32;
 
-                IWindowsServiceEngineSettings engineSettings = _container.Resolve<IWindowsServiceEngineSettings>();
+                IConsoleSystemEngineSettings engineSettings = _container.Resolve<IConsoleSystemEngineSettings>();
                 engineSettings.Set = Int32.MaxValue;
             }
             catch (Exception ex)
@@ -91,7 +91,7 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
         {
             try
             {
-                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(WindowsServiceSystemCore.ComponentsPath))
+                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(Program.ComponentsPath))
                     .BasedOn<IComponent>()
                     .WithServiceAllInterfaces()
                     .LifestyleSingleton()
@@ -107,7 +107,7 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
         {
             try
             {
-                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(WindowsServiceSystemCore.ComponentsPath))
+                _container.Register(Castle.MicroKernel.Registration.Classes.FromAssemblyInDirectory(new AssemblyFilter(Program.ComponentsPath))
                     .BasedOn<IEngine>()
                     .WithService.FromInterface()
                     .LifestyleSingleton()
@@ -123,7 +123,7 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
         {
             try
             {
-                _engine = _container.Resolve<IWindowsServiceEngine>();
+                _engine = _container.Resolve<IConsoleSystemEngine>();
                 _engine.Initialize();
                 _engine.Validate();
                 _engine.Run();

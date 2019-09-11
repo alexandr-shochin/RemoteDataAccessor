@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace RemoteDataAccessor.Common.Interfaces.Component
 {
-    public interface IEngine
+    public interface IConsoleSystemEngine : IEngine
     {
-        void Initialize();
-        void Validate();
-        void Run();
     }
 }

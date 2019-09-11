@@ -66,15 +66,22 @@
     <Compile Include="Classes\Logs\LogTools.cs" />
     <Compile Include="Classes\Logs\Trace.cs" />
     <Compile Include="Classes\Logs\Warn.cs" />
-    <Compile Include="Classes\Settings\DataAccessHelperProxySettings.cs" />
-    <Compile Include="Classes\Settings\EngineSettings.cs" />
+    <Compile Include="Classes\Settings\APIProviderSettings.cs" />
+    <Compile Include="Classes\Settings\ConsoleSystemEngineSettings.cs" />
+    <Compile Include="Classes\Settings\DataAccessProxySettings.cs" />
+    <Compile Include="Classes\Settings\WindowsServiceEngineSettings.cs" />
     <Compile Include="Interfaces\Component\IComponent.cs" />
+    <Compile Include="Interfaces\Component\IConsoleSystemEngine.cs" />
     <Compile Include="Interfaces\Component\IEngine.cs" />
+    <Compile Include="Interfaces\Settings\IConsoleSystemEngineSettings.cs" />
+    <Compile Include="Interfaces\Component\IWindowsServiceEngine.cs" />
     <Compile Include="Interfaces\Component\ILoadable.cs" />
     <Compile Include="Interfaces\Component\ISettings.cs" />
-    <Compile Include="Interfaces\Helpers\IDataAccessHelperProxy.cs" />
-    <Compile Include="Interfaces\Settings\IDataAccessHelperProxySettings.cs" />
-    <Compile Include="Interfaces\Settings\IEngineSettings.cs" />
+    <Compile Include="Interfaces\Helpers\IAPIProviderCore.cs" />
+    <Compile Include="Interfaces\Helpers\IDataAccessProxy.cs" />
+    <Compile Include="Interfaces\Settings\IAPIProviderSettings.cs" />
+    <Compile Include="Interfaces\Settings\IDataAccessProxySettings.cs" />
+    <Compile Include="Interfaces\Settings\IWindowsServiceEngineSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
