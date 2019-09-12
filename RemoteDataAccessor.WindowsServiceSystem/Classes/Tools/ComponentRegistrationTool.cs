@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Net;
 using RemoteDataAccessor.Common.Classes.Exceptions;
 using RemoteDataAccessor.Common.Classes.Logs;
 using RemoteDataAccessor.Common.Interfaces.Component;
@@ -76,7 +77,12 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
                 );
 
                 IDataAccessProxySettings dataAccessProxySettings = _container.Resolve<IDataAccessProxySettings>();
-                dataAccessProxySettings.Set = 32;
+
+                // TODO
+                dataAccessProxySettings.IpEndPoints = new List<IPEndPoint>
+                {
+                    new IPEndPoint(IPAddress.Parse("192.168.0.106"), 13000)
+                };
 
                 IWindowsServiceEngineSettings engineSettings = _container.Resolve<IWindowsServiceEngineSettings>();
                 engineSettings.Set = Int32.MaxValue;

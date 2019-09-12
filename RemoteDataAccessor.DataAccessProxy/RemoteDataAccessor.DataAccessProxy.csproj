@@ -50,7 +50,10 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Classes\ApiProviderWcfClient.cs" />
+    <Compile Include="Classes\WcfClientBase.cs" />
     <Compile Include="DataAccessProxyCore.cs" />
+    <Compile Include="Interfaces\IApiProviderWcfClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 
 using RemoteDataAccessor.Common.Classes.Logs;
 using RemoteDataAccessor.Common.Interfaces.Component;
-using RemoteDataAccessor.Common.Interfaces.s;
+using RemoteDataAccessor.Common.Interfaces.Helpers;
 using RemoteDataAccessor.Common.Interfaces.Settings;
 using RemoteDataAccessor.ConsoleSystemEngine.Properties;
 
