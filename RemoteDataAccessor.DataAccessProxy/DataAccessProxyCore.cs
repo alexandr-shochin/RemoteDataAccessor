@@ -35,7 +35,6 @@ namespace RemoteDataAccessor.DataAccessProxy
             }
             catch (Exception ex)
             {
-                _logTools.WriteLogToConsole<Error>(ex);
                 _logTools.WriteLogToFile<Error>(ex);
 
                 return new List<string>();
@@ -50,7 +49,6 @@ namespace RemoteDataAccessor.DataAccessProxy
             }
             catch (Exception ex)
             {
-                _logTools.WriteLogToConsole<Error>(ex);
                 _logTools.WriteLogToFile<Error>(ex);
 
                 return -1;

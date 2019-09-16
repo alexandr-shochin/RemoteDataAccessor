@@ -11,9 +11,10 @@ namespace RemoteDataAccessor.DataAccessProxy.Classes
 {
     public class ApiProviderWcfClient : WcfClientBase<IApiProviderContract>, IApiProviderWcfClient
     {
-        public ApiProviderWcfClient(IDataAccessProxySettings dataAccessProxySettings) : base(dataAccessProxySettings)
+        public ApiProviderWcfClient(IDataAccessProxySettings dataAccessProxySettings) : 
+            base(new ChannelManager<IApiProviderContract>(dataAccessProxySettings),
+            new ReconnectChannelManager<IApiProviderContract>(dataAccessProxySettings))
         {
-
         }
 
         public List<string> GetData()

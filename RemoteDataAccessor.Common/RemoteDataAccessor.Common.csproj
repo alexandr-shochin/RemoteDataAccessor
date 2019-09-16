@@ -69,6 +69,7 @@
     <Compile Include="Classes\Settings\APIProviderSettings.cs" />
     <Compile Include="Classes\Settings\ConsoleSystemEngineSettings.cs" />
     <Compile Include="Classes\Settings\DataAccessProxySettings.cs" />
+    <Compile Include="Classes\Settings\IpEndPointsSource.cs" />
     <Compile Include="Classes\Settings\WindowsServiceEngineSettings.cs" />
     <Compile Include="Classes\WcfServices\ApiProviderService.cs" />
     <Compile Include="Interfaces\Component\IComponent.cs" />
