@@ -16,8 +16,6 @@ namespace RemoteDataAccessor.WindowsServiceSystem
     {
         static void Main(string[] args)
         {
-            Thread.Sleep(15 * 1000);
-
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
 
             WindowsServiceSystemCore serviceToRun = new WindowsServiceSystemCore();

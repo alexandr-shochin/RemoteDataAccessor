@@ -17,8 +17,6 @@ namespace RemoteDataAccessor.ConsoleSystem
 
         static void Main(string[] args)
         {
-            Thread.Sleep(15 * 1000);
-
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
 
             _starterThread = new Thread(StarterThreadHandler) { IsBackground = true };
