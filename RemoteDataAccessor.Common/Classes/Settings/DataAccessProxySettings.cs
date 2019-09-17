@@ -10,6 +10,6 @@ namespace RemoteDataAccessor.Common.Classes.Settings
 {
     public class DataAccessProxySettings : IDataAccessProxySettings
     {
-        public List<IPEndPoint> IpEndPoints { get; set; } = new List<IPEndPoint>();
+        public IpEndPointsSource<IPEndPoint> IpEndPoints { get; set; }
     }
 }

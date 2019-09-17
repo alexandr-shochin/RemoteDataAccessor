@@ -13,6 +13,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using RemoteDataAccessor.Common.Classes.Settings;
 
 namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
 {
@@ -79,13 +80,14 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
                 IDataAccessProxySettings dataAccessProxySettings = _container.Resolve<IDataAccessProxySettings>();
 
                 // TODO
-                dataAccessProxySettings.IpEndPoints = new List<IPEndPoint>
-                {
-                    new IPEndPoint(IPAddress.Parse("192.168.0.106"), 13000)
-                };
+
+                IpEndPointsSource<IPEndPoint>.Create(2);
+                dataAccessProxySettings.IpEndPoints = IpEndPointsSource<IPEndPoint>.GetInstance;
+                dataAccessProxySettings.IpEndPoints.Enqueue(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000));
+                dataAccessProxySettings.IpEndPoints.Enqueue(new IPEndPoint(IPAddress.Parse("192.168.0.106"), 13000));
 
                 IWindowsServiceEngineSettings engineSettings = _container.Resolve<IWindowsServiceEngineSettings>();
-                engineSettings.Set = Int32.MaxValue;
+                engineSettings.Set = int.MaxValue;
             }
             catch (Exception ex)
             {
