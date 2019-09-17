@@ -77,6 +77,13 @@ namespace RemoteDataAccessor.WindowsServiceEngine
         {
             while (true)
             {
+                List<string> dataFromApi = _dataAccessProxy.GetData();
+                if (dataFromApi.Count > 0)
+                {
+                    LogTools logTools = new LogTools();
+                    logTools.WriteLogToConsole<Info>(string.Join(",", dataFromApi));
+                }
+
                 // some work
                 Thread.Sleep(1 * 1000);
             }

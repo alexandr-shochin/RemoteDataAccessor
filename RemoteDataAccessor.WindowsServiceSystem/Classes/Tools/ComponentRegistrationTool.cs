@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Net;
 using RemoteDataAccessor.Common.Classes.Exceptions;
 using RemoteDataAccessor.Common.Classes.Logs;
 using RemoteDataAccessor.Common.Interfaces.Component;
@@ -12,6 +13,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using RemoteDataAccessor.Common.Classes.Settings;
 
 namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
 {
@@ -76,10 +78,16 @@ namespace RemoteDataAccessor.WindowsServiceSystem.Classes.Tools
                 );
 
                 IDataAccessProxySettings dataAccessProxySettings = _container.Resolve<IDataAccessProxySettings>();
-                dataAccessProxySettings.Set = 32;
+
+                // TODO
+
+                IpEndPointsSource<IPEndPoint>.Create(2);
+                dataAccessProxySettings.IpEndPoints = IpEndPointsSource<IPEndPoint>.GetInstance;
+                dataAccessProxySettings.IpEndPoints.Enqueue(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000));
+                dataAccessProxySettings.IpEndPoints.Enqueue(new IPEndPoint(IPAddress.Parse("192.168.0.106"), 13000));
 
                 IWindowsServiceEngineSettings engineSettings = _container.Resolve<IWindowsServiceEngineSettings>();
-                engineSettings.Set = Int32.MaxValue;
+                engineSettings.Set = int.MaxValue;
             }
             catch (Exception ex)
             {

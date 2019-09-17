@@ -9,5 +9,6 @@ namespace RemoteDataAccessor.Common.Interfaces.Helpers
 {
     public interface IDataAccessProxy : IComponent
     {
+        List<string> GetData();
     }
 }
